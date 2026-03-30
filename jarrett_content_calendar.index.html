@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jarrett Stevens — 4-Week Instagram Content Calendar</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --slate: #2C3A3A;
+    --slate-mid: #4A5C5C;
+    --slate-light: #8A9E9E;
+    --slate-pale: #EEF2F2;
+    --gold: #C4973A;
+    --gold-light: #F7EDD6;
+    --gold-mid: #E8C47A;
+    --cream: #FAF8F4;
+    --white: #FFFFFF;
+    --mirror: #2C3A3A;
+    --mirror-bg: #EEF2F2;
+    --teach: #5C4A8A;
+    --teach-bg: #F0EDFB;
+    --proof: #8A5C2C;
+    --proof-bg: #F7EDD6;
+    --provoke: #2C5C4A;
+    --provoke-bg: #E5F2EC;
+    --border: rgba(44,58,58,0.1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--slate); font-size: 14px; line-height: 1.6; }
+
+  @media print {
+    body { background: white; font-size: 11px; }
+    .no-print { display: none !important; }
+    .week-section { page-break-before: always; }
+    .week-section:first-of-type { page-break-before: avoid; }
+    .post-card { page-break-inside: avoid; break-inside: avoid; }
+    .cover { page-break-after: always; }
+    nav { display: none; }
+  }
+
+  .cover {
+    background: var(--slate); color: var(--cream);
+    padding: 80px 60px 60px; position: relative; overflow: hidden;
+  }
+  .cover::before {
+    content: ''; position: absolute; top: -40px; right: -40px;
+    width: 300px; height: 300px; border-radius: 50%;
+    border: 1px solid rgba(196,151,58,0.2);
+  }
+  .cover::after {
+    content: ''; position: absolute; bottom: 20px; right: 60px;
+    width: 160px; height: 160px; border-radius: 50%;
+    border: 1px solid rgba(196,151,58,0.15);
+  }
+  .cover-eyebrow {
+    font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-mid); margin-bottom: 20px;
+  }
+  .cover-title {
+    font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 400;
+    line-height: 1.1; color: var(--cream); margin-bottom: 16px; max-width: 600px;
+  }
+  .cover-title em { font-style: italic; color: var(--gold-mid); }
+  .cover-sub { font-size: 16px; color: rgba(250,248,244,0.65); max-width: 480px; line-height: 1.7; margin-bottom: 40px; }
+  .cover-meta { display: flex; gap: 40px; border-top: 1px solid rgba(196,151,58,0.25); padding-top: 30px; margin-top: 10px; flex-wrap: wrap; }
+  .cover-meta-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,248,244,0.45); margin-bottom: 4px; }
+  .cover-meta-value { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--gold-mid); }
+
+  .strategy-page { background: var(--white); padding: 60px; border-bottom: 1px solid var(--border); }
+  .section-eyebrow { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 12px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 400; color: var(--slate); margin-bottom: 8px; line-height: 1.2; }
+  .section-intro { font-size: 15px; color: var(--slate-mid); max-width: 640px; line-height: 1.75; margin-bottom: 40px; }
+
+  .strategy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 40px; }
+  .strategy-card { padding: 20px; border-radius: 8px; border: 1px solid var(--border); }
+  .strategy-day { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; margin-bottom: 8px; }
+  .strategy-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 500; margin-bottom: 8px; }
+  .strategy-desc { font-size: 12px; color: var(--slate-mid); line-height: 1.6; margin-bottom: 12px; }
+  .strategy-goal { font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 20px; display: inline-block; }
+
+  .arc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .arc-cell { padding: 20px; border-right: 1px solid var(--border); }
+  .arc-cell:last-child { border-right: none; }
+  .arc-num { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--slate-pale); font-weight: 700; line-height: 1; margin-bottom: 8px; }
+  .arc-week { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 4px; }
+  .arc-title { font-family: 'Playfair Display', serif; font-size: 14px; color: var(--slate); font-weight: 500; line-height: 1.3; margin-bottom: 8px; }
+  .arc-desc { font-size: 12px; color: var(--slate-mid); line-height: 1.6; }
+
+  .week-section { padding: 60px; background: var(--cream); border-bottom: 1px solid var(--border); }
+  .week-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border); gap: 40px; }
+  .week-header-left { flex: 1; }
+  .week-num { font-family: 'Playfair Display', serif; font-size: 72px; color: var(--slate-pale); line-height: 1; font-weight: 700; }
+  .week-theme-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 6px; }
+  .week-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 500; color: var(--slate); margin-bottom: 10px; line-height: 1.2; }
+  .week-brief { font-size: 14px; color: var(--slate-mid); line-height: 1.7; max-width: 540px; }
+  .week-hashtags { flex: 0 0 260px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
+  .hashtag-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate-light); font-weight: 500; margin-bottom: 12px; }
+  .hashtag-list { display: flex; flex-wrap: wrap; gap: 6px; }
+  .hashtag { font-size: 11px; color: var(--slate-mid); background: var(--slate-pale); padding: 3px 8px; border-radius: 4px; }
+  .hashtag.core { background: var(--gold-light); color: var(--proof); }
+
+  .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .post-card { background: var(--white); border-radius: 10px; border: 1px solid var(--border); overflow: hidden; }
+  .post-card-header { padding: 16px 20px 14px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
+  .post-day-type { display: flex; align-items: center; gap: 10px; }
+  .post-day { font-size: 12px; font-weight: 500; color: var(--slate-mid); }
+  .type-badge { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 9px; border-radius: 20px; }
+  .badge-mirror { background: var(--mirror-bg); color: var(--mirror); }
+  .badge-teach { background: var(--teach-bg); color: var(--teach); }
+  .badge-proof { background: var(--proof-bg); color: var(--proof); }
+  .badge-provoke { background: var(--provoke-bg); color: var(--provoke); }
+  .post-format-tag { font-size: 10px; color: var(--slate-light); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .post-body { padding: 20px; }
+  .post-hook { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 500; color: var(--slate); line-height: 1.45; margin-bottom: 16px; font-style: italic; }
+
+  .section-block { margin-bottom: 16px; }
+  .block-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; margin-bottom: 6px; }
+  .block-text { font-size: 13px; color: var(--slate-mid); line-height: 1.7; }
+  .block-text p { margin-bottom: 8px; }
+  .block-text p:last-child { margin-bottom: 0; }
+
+  .script-box {
+    background: var(--slate); color: var(--cream); border-radius: 6px;
+    padding: 16px; font-size: 12px; line-height: 1.8; margin-top: 6px; position: relative;
+  }
+  .script-box::before {
+    content: 'SCRIPT'; position: absolute; top: -8px; left: 12px;
+    font-size: 9px; letter-spacing: 0.15em; font-weight: 500;
+    background: var(--gold); color: var(--slate); padding: 2px 8px; border-radius: 3px;
+  }
+  .script-direction { color: var(--gold-mid); font-style: italic; font-size: 11px; }
+  .script-line { color: var(--cream); }
+  .script-pause { color: rgba(250,248,244,0.4); font-size: 11px; font-style: italic; }
+
+  .visual-box { background: var(--slate-pale); border-radius: 6px; padding: 14px; margin-top: 6px; }
+  .visual-item { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 6px; font-size: 12px; color: var(--slate-mid); }
+  .visual-item:last-child { margin-bottom: 0; }
+  .visual-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 5px; }
+
+  .cta-box { background: var(--gold-light); border-radius: 0 6px 6px 0; padding: 12px 14px; font-size: 13px; color: var(--proof); font-style: italic; margin-top: 6px; border-left: 3px solid var(--gold); }
+
+  .lens-strip { padding: 10px 20px; background: var(--slate-pale); border-top: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+  .lens-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-light); font-weight: 500; flex-shrink: 0; }
+  .lens-text { font-size: 12px; color: var(--slate-mid); font-style: italic; }
+
+  .fri-split { display: flex; flex-direction: column; gap: 12px; }
+  .fri-section { border: 1px solid var(--border); border-radius: 6px; padding: 14px; }
+  .fri-section-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; margin-bottom: 8px; }
+
+  nav { background: var(--white); border-bottom: 1px solid var(--border); padding: 14px 60px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .nav-title { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--slate); }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-link { font-size: 12px; color: var(--slate-light); text-decoration: none; letter-spacing: 0.06em; font-weight: 500; cursor: pointer; }
+  .nav-link:hover { color: var(--gold); }
+  .print-btn { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 16px; border-radius: 4px; background: var(--slate); color: var(--cream); border: none; cursor: pointer; }
+  .print-btn:hover { background: var(--gold); color: var(--slate); }
+
+  @media print {
+    .week-section { padding: 40px; }
+    .posts-grid { grid-template-columns: repeat(3, 1fr); }
+    .strategy-grid { grid-template-columns: repeat(3, 1fr); }
+    .cover { padding: 50px 40px 40px; }
+    .strategy-page { padding: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="no-print">
+  <span class="nav-title">Jarrett Stevens — Content Calendar</span>
+  <div class="nav-links">
+    <a class="nav-link" href="#strategy">Strategy</a>
+    <a class="nav-link" href="#week1">Week 1</a>
+    <a class="nav-link" href="#week2">Week 2</a>
+    <a class="nav-link" href="#week3">Week 3</a>
+    <a class="nav-link" href="#week4">Week 4</a>
+  </div>
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+</nav>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-eyebrow">Novus Global Executive Coach · Instagram Content Strategy</div>
+  <h1 class="cover-title">4-Week Authority<br><em>Content Calendar</em></h1>
+  <p class="cover-sub">A 3-day-a-week posting system for Jarrett Stevens — Mon, Wed, Fri — building executive coaching authority without abandoning 30 years of pastoral and authorship credibility.</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Total Posts</div>
+      <div class="cover-meta-value">12</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Days / Week</div>
+      <div class="cover-meta-value">3</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Video Scripts</div>
+      <div class="cover-meta-value">8</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Posting Days</div>
+      <div class="cover-meta-value">Mon · Wed · Fri</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Framework</div>
+      <div class="cover-meta-value">Novus / BHP</div>
+    </div>
+  </div>
+</div>
+
+<!-- STRATEGY -->
+<div class="strategy-page" id="strategy">
+  <div class="section-eyebrow">Content Architecture</div>
+  <h2 class="section-title">Three days. Three jobs. One arc.</h2>
+  <p class="section-intro">Monday earns attention by naming what your client already feels. Wednesday builds authority through teaching the Novus and BHP framework. Friday does double duty — it transfers credibility through story, then closes with a sharp provocation that drives saves, shares, and DMs. Three posts a week, nothing wasted.</p>
+
+  <div class="strategy-grid">
+    <div class="strategy-card" style="background: var(--mirror-bg); border-color: rgba(44,58,58,0.15);">
+      <div class="strategy-day" style="color: var(--mirror);">Monday — The Mirror</div>
+      <div class="strategy-name" style="color: var(--mirror);">Name what they feel</div>
+      <div class="strategy-desc">Describes your client's inner world with such accuracy they feel seen before you've said a word about coaching. Carousel or single image. No framework language — pure empathy and observation.</div>
+      <span class="strategy-goal" style="background: var(--mirror); color: var(--cream);">Earns trust</span>
+    </div>
+    <div class="strategy-card" style="background: var(--teach-bg); border-color: rgba(92,74,138,0.15);">
+      <div class="strategy-day" style="color: var(--teach);">Wednesday — The Teaching</div>
+      <div class="strategy-name" style="color: var(--teach);">Show the framework</div>
+      <div class="strategy-desc">One Novus or BHP concept made concrete. Always a video reel — your voice and presence do the teaching. Positions you as the thinker behind the transformation, not just a coach with an opinion.</div>
+      <span class="strategy-goal" style="background: var(--teach); color: var(--cream);">Builds authority</span>
+    </div>
+    <div class="strategy-card" style="background: var(--proof-bg); border-color: rgba(138,92,44,0.15);">
+      <div class="strategy-day" style="color: var(--proof);">Friday — Proof + Provocation</div>
+      <div class="strategy-name" style="color: var(--proof);">Story, then reframe</div>
+      <div class="strategy-desc">First half: a real story — pastoral or coaching — that transfers 30 years of credibility into this context. Second half: a sharp provocation or question that makes the post worth saving, sharing, or responding to.</div>
+      <span class="strategy-goal" style="background: var(--proof); color: var(--cream);">Transfers trust + drives engagement</span>
+    </div>
+  </div>
+
+  <div class="section-eyebrow" style="margin-top: 40px;">4-Week Arc</div>
+  <div class="arc-grid">
+    <div class="arc-cell">
+      <div class="arc-num">01</div>
+      <div class="arc-week">Week 1</div>
+      <div class="arc-title">The Invisible Ceiling</div>
+      <div class="arc-desc">Name the problem no one is naming. Make your client feel seen before you've said a word about coaching.</div>
+    </div>
+    <div class="arc-cell">
+      <div class="arc-num">02</div>
+      <div class="arc-week">Week 2</div>
+      <div class="arc-title">Identity Before Strategy</div>
+      <div class="arc-desc">Introduce the inside-out framework. Show why tactics alone will never fix what they're experiencing.</div>
+    </div>
+    <div class="arc-cell">
+      <div class="arc-num">03</div>
+      <div class="arc-week">Week 3</div>
+      <div class="arc-title">The Tools That Actually Work</div>
+      <div class="arc-desc">Show the Novus framework in action. Give the audience a taste of what it's like to be coached by you.</div>
+    </div>
+    <div class="arc-cell" style="border-right: none;">
+      <div class="arc-num">04</div>
+      <div class="arc-week">Week 4</div>
+      <div class="arc-title">The Invitation</div>
+      <div class="arc-desc">Call them forward, not out. The soft CTA that doesn't feel like a CTA — an open door, not a sales pitch.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ WEEK 1 ═══ -->
+<div class="week-section" id="week1">
+  <div class="week-header">
+    <div class="week-header-left">
+      <div class="week-num">01</div>
+      <div class="week-theme-label">Week 1 Theme</div>
+      <h2 class="week-title">The Invisible Ceiling</h2>
+      <p class="week-brief">Name the problem no one else is naming. Every post this week holds a mirror up to the high-achieving leader who has outwardly won but privately wonders if this is all there is. You're not pitching coaching — you're describing someone's inner life with such accuracy they feel compelled to follow.</p>
+    </div>
+    <div class="week-hashtags">
+      <div class="hashtag-label">Week 1 Hashtag Set</div>
+      <div class="hashtag-list">
+        <span class="hashtag core">#InvisibleCeiling</span>
+        <span class="hashtag core">#MetaPerformance</span>
+        <span class="hashtag core">#ExecutiveCoach</span>
+        <span class="hashtag">#LeadershipDevelopment</span>
+        <span class="hashtag">#HighPerformance</span>
+        <span class="hashtag">#LeadershipCoaching</span>
+        <span class="hashtag">#ExecutiveLeadership</span>
+        <span class="hashtag">#TransformationalLeadership</span>
+        <span class="hashtag">#NovusGlobal</span>
+        <span class="hashtag">#BeyondHighPerformance</span>
+        <span class="hashtag">#IdentityFirst</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="posts-grid">
+
+    <!-- W1 Mon -->
+    <div class="post-card">
+      <div class="post-card-header">
+        <div class="post-day-type">
+          <span class="post-day">Monday</span>
+          <span class="type-badge badge-mirror">Mirror</span>
+        </div>
+        <span class="post-format-tag">Carousel · 4 slides</span>
+      </div>
+      <div class="post-body">
+        <div class="post-hook">"You've achieved more than most people dream of. So why does it feel like something is still missing?"</div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--mirror);">Caption</div>
+          <div class="block-text">
+            <p>There's a version of success that looks exactly right from the outside.</p>
+            <p>The title. The income. The team that respects you. The life that checks every box you were told to check.</p>
+            <p>And then there's the quiet voice — usually somewhere around 11pm on a Tuesday — that says: <em>Is this it?</em></p>
+            <p>That voice isn't ingratitude. It's not a midlife crisis. It's not you being difficult or selfish or broken.</p>
+            <p>That voice is a signal. And most high achievers have been trained their whole lives to ignore it.</p>
+            <p>What if the feeling isn't a problem to solve? What if it's an invitation?</p>
+          </div>
+        </div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--slate-mid);">Visual Direction</div>
+          <div class="visual-box">
+            <div class="visual-item"><div class="visual-dot"></div>Slide 1: Bold hook text on dark slate background. Large serif font. No image.</div>
+            <div class="visual-item"><div class="visual-dot"></div>Slides 2–3: Warm cream background. One short phrase per slide. Generous white space.</div>
+            <div class="visual-item"><div class="visual-dot"></div>Slide 4: Your face — candid, direct eye contact. Minimal overlay: "That voice is a signal."</div>
+            <div class="visual-item"><div class="visual-dot"></div>Palette: Slate + cream + single gold accent. No stock photos. No icons.</div>
+          </div>
+        </div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--slate-mid);">CTA</div>
+          <div class="cta-box">Save this if it landed somewhere real. Drop a 🔥 if you've felt this.</div>
+        </div>
+      </div>
+      <div class="lens-strip">
+        <span class="lens-label">Lens</span>
+        <span class="lens-text">Invisible ceiling concept — pure empathy, no framework language</span>
+      </div>
+    </div>
+
+    <!-- W1 Wed -->
+    <div class="post-card">
+      <div class="post-card-header">
+        <div class="post-day-type">
+          <span class="post-day">Wednesday</span>
+          <span class="type-badge badge-teach">Teach</span>
+        </div>
+        <span class="post-format-tag">Video Reel · 60–90 sec</span>
+      </div>
+      <div class="post-body">
+        <div class="post-hook">"High performers ask: how can I be the best? Meta performers ask something completely different."</div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--teach);">Video Script</div>
+          <div class="script-box">
+            <div class="script-direction">[Open to camera, direct eye contact, slight lean forward — no intro pleasantries]</div><br>
+            <div class="script-line">Here's a question that changed how I think about achievement.</div><br>
+            <div class="script-line">What's the difference between a high performer and a meta performer?</div><br>
+            <div class="script-pause">[pause — one beat]</div><br>
+            <div class="script-line">A high performer asks: how can I be the best?</div>
+            <div class="script-line">A meta performer asks: what am I actually capable of?</div><br>
+            <div class="script-direction">[slight shift — this is the turn]</div><br>
+            <div class="script-line">Those sound similar. They're not.</div><br>
+            <div class="script-line">"Being the best" is a comparison. It's external. It has a ceiling.</div>
+            <div class="script-line">"What am I capable of" — that's a different conversation entirely.</div><br>
+            <div class="script-line">There's an image I come back to all the time: a mother lifting a car off her child. In that moment, she wasn't thinking about being the best. She was operating from something she didn't even know she had.</div><br>
+            <div class="script-pause">[quieter, slower]</div><br>
+            <div class="script-line">That's meta performance. And most high achievers have never actually gone there.</div><br>
+            <div class="script-direction">[direct to camera]</div><br>
+            <div class="script-line">What would it look like if you stopped trying to be the best — and started asking what you're actually capable of?</div><br>
+            <div class="script-direction">[hold — no outro, just the question]</div>
+          </div>
+        </div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--slate-mid);">Visual Direction</div>
+          <div class="visual-box">
+            <div class="visual-item"><div class="visual-dot"></div>Seated. Good window light on one side. Dark or neutral background. No ring light.</div>
+            <div class="visual-item"><div class="visual-dot"></div>Medium shot, slightly below eye level. Lean forward on the key line.</div>
+            <div class="visual-item"><div class="visual-dot"></div>Text overlay at open: "High performer vs. Meta performer" — small, bottom third.</div>
+            <div class="visual-item"><div class="visual-dot"></div>No music. Silence gives the question room to land.</div>
+          </div>
+        </div>
+      </div>
+      <div class="lens-strip">
+        <span class="lens-label">Lens</span>
+        <span class="lens-text">BHP Performance Pyramid — Meta Performance™, the mother/car image</span>
+      </div>
+    </div>
+
+    <!-- W1 Fri -->
+    <div class="post-card">
+      <div class="post-card-header">
+        <div class="post-day-type">
+          <span class="post-day">Friday</span>
+          <span class="type-badge badge-proof">Proof + Provocation</span>
+        </div>
+        <span class="post-format-tag">Single Image · Long Caption</span>
+      </div>
+      <div class="post-body">
+        <div class="post-hook">"I've preached to 100,000 people and sat in rooms with CEOs. Both taught me the same thing about what actually changes a person."</div>
+        <div class="fri-split">
+          <div class="fri-section">
+            <div class="fri-section-label" style="color: var(--proof);">The Proof</div>
+            <div class="block-text">
+              <p>Twenty-five years on a stage. Hundreds of hours in a coaching room.</p>
+              <p>Different contexts, same discovery: information alone has never transformed anyone.</p>
+              <p>I've seen people hear the most accurate truth of their lives — and walk out exactly the same as they walked in. And I've seen a single question dismantle a belief someone has carried for forty years.</p>
+              <p>The difference wasn't the content. It was the identity shift underneath it.</p>
+              <p>When something changes at the level of who you are — not what you know or what you do — everything else rearranges.</p>
+            </div>
+          </div>
+          <div class="fri-section" style="background: var(--provoke-bg); border-color: rgba(44,92,74,0.15);">
+            <div class="fri-section-label" style="color: var(--provoke);">The Provocation</div>
+            <div class="block-text">
+              <p>Your playbook got you here. It's also why you're stuck.</p>
+              <p>The invisible ceiling isn't above you. It's made of your own expertise.</p>
+              <p><em>When did your greatest strengths start putting a ceiling on what's possible?</em></p>
+            </div>
+          </div>
+        </div>
+        <div class="section-block" style="margin-top: 14px;">
+          <div class="block-label" style="color: var(--slate-mid);">Visual Direction</div>
+          <div class="visual-box">
+            <div class="visual-item"><div class="visual-dot"></div>You speaking — on stage or in a coaching posture. Black and white or muted tone.</div>
+            <div class="visual-item"><div class="visual-dot"></div>No text overlay. The image is atmosphere. The caption does the work.</div>
+          </div>
+        </div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--slate-mid);">CTA</div>
+          <div class="cta-box">When did your greatest strengths start working against you? Answer below.</div>
+        </div>
+      </div>
+      <div class="lens-strip">
+        <span class="lens-label">Lens</span>
+        <span class="lens-text">Pastoral credibility transfer + intuitive fence (Novus)</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ WEEK 2 ═══ -->
+<div class="week-section" id="week2">
+  <div class="week-header">
+    <div class="week-header-left">
+      <div class="week-num">02</div>
+      <div class="week-theme-label">Week 2 Theme</div>
+      <h2 class="week-title">Identity Before Strategy</h2>
+      <p class="week-brief">Draw the line between performance coaching and transformation coaching. This week you introduce the inside-out framework — and you position your pastoral background not as an aside, but as the source of your deepest coaching insight. A leader who follows all three posts this week understands, intuitively, that you are not a tactics coach.</p>
+    </div>
+    <div class="week-hashtags">
+      <div class="hashtag-label">Week 2 Hashtag Set</div>
+      <div class="hashtag-list">
+        <span class="hashtag core">#IdentityFirst</span>
+        <span class="hashtag core">#TransformationCoaching</span>
+        <span class="hashtag core">#ExecutiveCoach</span>
+        <span class="hashtag">#LeadershipIdentity</span>
+        <span class="hashtag">#InsideOut</span>
+        <span class="hashtag">#LeadershipMindset</span>
+        <span class="hashtag">#CEOMindset</span>
+        <span class="hashtag">#NovusGlobal</span>
+        <span class="hashtag">#BeyondHighPerformance</span>
+        <span class="hashtag">#PurposeDrivenLeader</span>
+        <span class="hashtag">#LeadershipCoach</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="posts-grid">
+
+    <!-- W2 Mon -->
+    <div class="post-card">
+      <div class="post-card-header">
+        <div class="post-day-type">
+          <span class="post-day">Monday</span>
+          <span class="type-badge badge-mirror">Mirror</span>
+        </div>
+        <span class="post-format-tag">Carousel · 5 slides</span>
+      </div>
+      <div class="post-body">
+        <div class="post-hook">"Everyone told you the promotion would feel different. It didn't. Here's why."</div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--mirror);">Caption</div>
+          <div class="block-text">
+            <p>You hit the number. Made the hire. Closed the deal. Led the team through the hard quarter.</p>
+            <p>And then you sat in the quiet afterwards — and nothing had shifted.</p>
+            <p>Not because you're ungrateful. Not because you're broken. But because external wins don't touch the internal program.</p>
+            <p>You can win the game on the outside and still be running an old version of yourself on the inside.</p>
+            <p>That's not a performance problem. It's an identity problem. And no promotion, bonus, or achievement will solve it.</p>
+            <p>The work that changes everything doesn't start with strategy. It starts with: <em>Who do I need to become?</em></p>
+          </div>
+        </div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--slate-mid);">Visual Direction</div>
+          <div class="visual-box">
+            <div class="visual-item"><div class="visual-dot"></div>Carousel: alternate cream and slate slides. One phrase per slide in large serif.</div>
+            <div class="visual-item"><div class="visual-dot"></div>Final slide: your face + the question "Who do I need to become?" as the only text.</div>
+            <div class="visual-item"><div class="visual-dot"></div>Pacing: each slide should feel like a beat in a sermon. Slow. Weight on every line.</div>
+          </div>
+        </div>
+      </div>
+      <div class="lens-strip">
+        <span class="lens-label">Lens</span>
+        <span class="lens-text">Identity ceiling — coaching from the inside out</span>
+      </div>
+    </div>
+
+    <!-- W2 Wed -->
+    <div class="post-card">
+      <div class="post-card-header">
+        <div class="post-day-type">
+          <span class="post-day">Wednesday</span>
+          <span class="type-badge badge-teach">Teach</span>
+        </div>
+        <span class="post-format-tag">Video Reel · 60–90 sec</span>
+      </div>
+      <div class="post-body">
+        <div class="post-hook">"There are four ways a leader can relate to their work. Only one of them is actually sustainable."</div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--teach);">Video Script</div>
+          <div class="script-box">
+            <div class="script-direction">[Direct to camera. Lean back slightly — relaxed, confident, not urgent]</div><br>
+            <div class="script-line">Quick diagnostic question. And I want you to answer honestly.</div><br>
+            <div class="script-line">How do you relate to your work right now?</div><br>
+            <div class="script-line">There are four postures a leader can take.</div><br>
+            <div class="script-line">The Prisoner. Their question is: what's the least I can do? They're there — but they're not there.</div><br>
+            <div class="script-line">The Mercenary. Pure transaction. What's in it for me? They perform — but only when the incentive is right.</div><br>
+            <div class="script-line">The Missionary. All cause, all the time. They'll burn themselves to the ground for the mission — and eventually they do.</div><br>
+            <div class="script-line">The Athlete. The Athlete treats everything as practice. Not just the wins — the losses, the ordinary Tuesdays, all of it. All of it is data. All of it is development.</div><br>
+            <div class="script-pause">[pause — slower]</div><br>
+            <div class="script-line">Here's the honest question: which one showed up in your Monday morning this week?</div><br>
+            <div class="script-direction">[hold — no answer, no wrap-up]</div>
+          </div>
+        </div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--slate-mid);">Visual Direction</div>
+          <div class="visual-box">
+            <div class="visual-item"><div class="visual-dot"></div>Standing for this one — slightly more energy than seated. Clean background.</div>
+            <div class="visual-item"><div class="visual-dot"></div>Text overlays: each of the four names appears as you say it. Simple lower-third style.</div>
+            <div class="visual-item"><div class="visual-dot"></div>End on stillness. Don't move after the final question. Let the camera hold.</div>
+          </div>
+        </div>
+      </div>
+      <div class="lens-strip">
+        <span class="lens-label">Lens</span>
+        <span class="lens-text">BHP — Four Relationships to Work: Prisoner, Mercenary, Missionary, Athlete</span>
+      </div>
+    </div>
+
+    <!-- W2 Fri -->
+    <div class="post-card">
+      <div class="post-card-header">
+        <div class="post-day-type">
+          <span class="post-day">Friday</span>
+          <span class="type-badge badge-proof">Proof + Provocation</span>
+        </div>
+        <span class="post-format-tag">Single Image · Long Caption</span>
+      </div>
+      <div class="post-body">
+        <div class="post-hook">"A leader came to me wanting a better strategy. What they actually needed was a different story about themselves."</div>
+        <div class="fri-split">
+          <div class="fri-section">
+            <div class="fri-section-label" style="color: var(--proof);">The Proof</div>
+            <div class="block-text">
+              <p>He ran a $40M division. Hit his numbers three years running. Came in saying: I need a better system for managing up.</p>
+              <p>Twenty minutes in, we weren't talking about managing up. We were talking about a story he'd carried since he was twelve — that he had to earn his place in every room.</p>
+              <p>That story made him exceptional. It also exhausted him. And it was the ceiling.</p>
+              <p>We spent six months not building a better system. We spent it dismantling the story that made a system necessary.</p>
+              <p>By the end, he wasn't managing up differently. He was walking into rooms differently.</p>
+            </div>
+          </div>
+          <div class="fri-section" style="background: var(--provoke-bg); border-color: rgba(44,92,74,0.15);">
+            <div class="fri-section-label" style="color: var(--provoke);">The Provocation</div>
+            <div class="block-text">
+              <p>You don't have a strategy problem. You have a self-concept problem.</p>
+              <p>Strategy is the last thing a stuck leader needs. It's the first thing they ask for.</p>
+              <p><em>What story are you still carrying that you've never actually examined?</em></p>
+            </div>
+          </div>
+        </div>
+        <div class="section-block" style="margin-top: 14px;">
+          <div class="block-label" style="color: var(--slate-mid);">Visual Direction</div>
+          <div class="visual-box">
+            <div class="visual-item"><div class="visual-dot"></div>You in coaching posture — seated across from someone (or positioned as if you are). Listening.</div>
+            <div class="visual-item"><div class="visual-dot"></div>Warm light. Feels like a real room, not a studio. No text overlay.</div>
+          </div>
+        </div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--slate-mid);">CTA</div>
+          <div class="cta-box">What story are you still carrying that you've never examined? DMs open.</div>
+        </div>
+      </div>
+      <div class="lens-strip">
+        <span class="lens-label">Lens</span>
+        <span class="lens-text">Transformation coaching — identity over tactics. Composite client story.</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ WEEK 3 ═══ -->
+<div class="week-section" id="week3">
+  <div class="week-header">
+    <div class="week-header-left">
+      <div class="week-num">03</div>
+      <div class="week-theme-label">Week 3 Theme</div>
+      <h2 class="week-title">The Tools That Actually Work</h2>
+      <p class="week-brief">Shift from naming the problem to demonstrating the tools. Give the audience a real taste of what it's like to be coached by you. Use Novus and BHP language naturally — not as jargon, but as a vocabulary your audience starts to adopt. By Friday, they should be using phrases like "complaint as vision" without knowing where they got it.</p>
+    </div>
+    <div class="week-hashtags">
+      <div class="hashtag-label">Week 3 Hashtag Set</div>
+      <div class="hashtag-list">
+        <span class="hashtag core">#MetaPerformance</span>
+        <span class="hashtag core">#CoachingTools</span>
+        <span class="hashtag core">#ExecutiveCoach</span>
+        <span class="hashtag">#LeadershipFramework</span>
+        <span class="hashtag">#OwnershipMindset</span>
+        <span class="hashtag">#VisionDriven</span>
+        <span class="hashtag">#NovusGlobal</span>
+        <span class="hashtag">#BeyondHighPerformance</span>
+        <span class="hashtag">#GrowthMindset</span>
+        <span class="hashtag">#LeadershipTools</span>
+        <span class="hashtag">#ExecutiveDevelopment</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="posts-grid">
+
+    <!-- W3 Mon -->
+    <div class="post-card">
+      <div class="post-card-header">
+        <div class="post-day-type">
+          <span class="post-day">Monday</span>
+          <span class="type-badge badge-mirror">Mirror</span>
+        </div>
+        <span class="post-format-tag">Single Image · Medium Caption</span>
+      </div>
+      <div class="post-body">
+        <div class="post-hook">"The most dangerous thing a high achiever does is blame themselves for the wrong thing."</div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--mirror);">Caption</div>
+          <div class="block-text">
+            <p>Something is off. You can feel it.</p>
+            <p>So you do what high achievers do — you diagnose and fix. Work harder. Optimize the process. Read the book.</p>
+            <p>And six months later, something is still off.</p>
+            <p>Most stuck leaders aren't broken. They're misdiagnosed. They're treating the symptom and missing the root.</p>
+            <p>The frustration isn't about productivity. The restlessness isn't about work-life balance. The ceiling isn't about strategy.</p>
+            <p>It almost always goes deeper. And the tools that got you to the top were not designed to help you see below the surface. That's not a flaw. That's physics. You need a different instrument.</p>
+          </div>
+        </div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--slate-mid);">Visual Direction</div>
+          <div class="visual-box">
+            <div class="visual-item"><div class="visual-dot"></div>Candid photo — you thinking, reading, looking out a window. Thinker energy, not content creator energy.</div>
+            <div class="visual-item"><div class="visual-dot"></div>Feels like catching you in a real moment of reflection.</div>
+          </div>
+        </div>
+      </div>
+      <div class="lens-strip">
+        <span class="lens-label">Lens</span>
+        <span class="lens-text">Ownership vs. blame — intuitive fence, Novus Global</span>
+      </div>
+    </div>
+
+    <!-- W3 Wed -->
+    <div class="post-card">
+      <div class="post-card-header">
+        <div class="post-day-type">
+          <span class="post-day">Wednesday</span>
+          <span class="type-badge badge-teach">Teach</span>
+        </div>
+        <span class="post-format-tag">Video Reel · 60–75 sec</span>
+      </div>
+      <div class="post-body">
+        <div class="post-hook">"Every complaint you have as a leader is actually a vision you haven't claimed yet."</div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--teach);">Video Script</div>
+          <div class="script-box">
+            <div class="script-direction">[Seated. Closer to camera than usual. Conversational — like you're sharing something you just realized]</div><br>
+            <div class="script-line">Here's a reframe that changes everything in a coaching room.</div><br>
+            <div class="script-line">Every complaint a leader has — every one — is a vision they haven't claimed yet.</div><br>
+            <div class="script-pause">[pause — let them sit with it]</div><br>
+            <div class="script-line">When you say "nobody on my team takes initiative" — that's not a complaint. That's a vision for a team that does.</div><br>
+            <div class="script-line">When you say "I'm not making the kind of impact I want to make" — that's not frustration. That's a vision for the impact you're capable of.</div><br>
+            <div class="script-line">When you say "I feel like I'm playing it safe" — that's not weakness. That's a vision for a version of you who doesn't.</div><br>
+            <div class="script-direction">[lean in slightly]</div><br>
+            <div class="script-line">Your frustrations are not problems. They're a map.</div>
+            <div class="script-line">Most leaders just never learn to read them.</div><br>
+            <div class="script-line">What's the complaint you keep coming back to? Because under it, there's a vision waiting.</div><br>
+            <div class="script-direction">[hold — no resolution, just the question]</div>
+          </div>
+        </div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--slate-mid);">Visual Direction</div>
+          <div class="visual-box">
+            <div class="visual-item"><div class="visual-dot"></div>Closer framing than Weeks 1–2 videos. Trust is building — the camera can come in.</div>
+            <div class="visual-item"><div class="visual-dot"></div>Text overlays: each "When you say..." line gets a subtle lower-third reinforcement.</div>
+            <div class="visual-item"><div class="visual-dot"></div>Warm light, slightly softer. Less confrontational, more invitational.</div>
+          </div>
+        </div>
+      </div>
+      <div class="lens-strip">
+        <span class="lens-label">Lens</span>
+        <span class="lens-text">Novus Global — complaint as latent vision</span>
+      </div>
+    </div>
+
+    <!-- W3 Fri -->
+    <div class="post-card">
+      <div class="post-card-header">
+        <div class="post-day-type">
+          <span class="post-day">Friday</span>
+          <span class="type-badge badge-proof">Proof + Provocation</span>
+        </div>
+        <span class="post-format-tag">Video Reel · 90 sec</span>
+      </div>
+      <div class="post-body">
+        <div class="post-hook">"Thirty years of preaching taught me something about what actually changes people. It's not the content."</div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--proof);">Video Script</div>
+          <div class="script-box">
+            <div class="script-direction">[Standing. More space behind you — authority post. Bookshelves or a meaningful room.]</div><br>
+            <div class="script-line">I've been delivering content to people my whole career. Sermons. Books. Coaching sessions. Conference talks.</div><br>
+            <div class="script-line">And here's what thirty years of watching people change — or not change — has taught me:</div><br>
+            <div class="script-line">The content is almost never the variable.</div><br>
+            <div class="script-pause">[pause]</div><br>
+            <div class="script-line">I've watched people sit through the most accurate truth of their lives — and walk out exactly the same as they walked in.</div><br>
+            <div class="script-line">And I've watched a single question — asked at exactly the right moment — dismantle a belief someone has carried for forty years.</div><br>
+            <div class="script-line">The difference was never the words. It was the presence behind the words. The willingness to go first. The room that was created for something to actually happen.</div><br>
+            <div class="script-pause">[slower, quieter]</div><br>
+            <div class="script-line">The best preachers and the best coaches share one thing: they're not performing. They're being.</div><br>
+            <div class="script-direction">[slight pause, then the provocation]</div><br>
+            <div class="script-line">So here's what I want you to sit with this weekend:</div>
+            <div class="script-line">What are you most frustrated about right now?</div>
+            <div class="script-line">Because under that frustration — there's a map. And on that map, there's a vision you haven't claimed yet.</div><br>
+            <div class="script-direction">[hold — end there]</div>
+          </div>
+        </div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--slate-mid);">Visual Direction</div>
+          <div class="visual-box">
+            <div class="visual-item"><div class="visual-dot"></div>Most authority visual of the series. A real room — bookshelves, meaningful space, not a backdrop.</div>
+            <div class="visual-item"><div class="visual-dot"></div>Minimal text overlays — only the final question gets text: "What are you most frustrated about?"</div>
+            <div class="visual-item"><div class="visual-dot"></div>This post: invite comments. Respond to each one publicly — name the latent vision you see underneath. Coaching demo in public.</div>
+          </div>
+        </div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--slate-mid);">CTA</div>
+          <div class="cta-box">Drop your frustration in the comments. I'll tell you what I see under it. High-engagement play — respond to every reply.</div>
+        </div>
+      </div>
+      <div class="lens-strip">
+        <span class="lens-label">Lens</span>
+        <span class="lens-text">Pastoral authority transfer + complaint as latent vision (Novus). Public coaching demo.</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ WEEK 4 ═══ -->
+<div class="week-section" id="week4">
+  <div class="week-header">
+    <div class="week-header-left">
+      <div class="week-num">04</div>
+      <div class="week-theme-label">Week 4 Theme</div>
+      <h2 class="week-title">The Invitation</h2>
+      <p class="week-brief">You've named the problem, introduced the framework, shown it in action. Now you issue the invitation — not as a pitch, but as a calling forward. This is where your pastoral voice is the most powerful asset in the room. A leader who has followed all four weeks should feel, by Friday, like they've already started working with you.</p>
+    </div>
+    <div class="week-hashtags">
+      <div class="hashtag-label">Week 4 Hashtag Set</div>
+      <div class="hashtag-list">
+        <span class="hashtag core">#ThrillingVision</span>
+        <span class="hashtag core">#MetaPerformance</span>
+        <span class="hashtag core">#ExecutiveCoach</span>
+        <span class="hashtag">#WhatAmICapableOf</span>
+        <span class="hashtag">#LeadershipTransformation</span>
+        <span class="hashtag">#NovusGlobal</span>
+        <span class="hashtag">#BeyondHighPerformance</span>
+        <span class="hashtag">#TransformationalLeadership</span>
+        <span class="hashtag">#PurposeDriven</span>
+        <span class="hashtag">#LeadershipCoach</span>
+        <span class="hashtag">#CalledForward</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="posts-grid">
+
+    <!-- W4 Mon -->
+    <div class="post-card">
+      <div class="post-card-header">
+        <div class="post-day-type">
+          <span class="post-day">Monday</span>
+          <span class="type-badge badge-mirror">Mirror</span>
+        </div>
+        <span class="post-format-tag">Carousel · 4 slides</span>
+      </div>
+      <div class="post-body">
+        <div class="post-hook">"The leaders I work with aren't broken. They're just operating on a program written for an earlier version of themselves."</div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--mirror);">Caption</div>
+          <div class="block-text">
+            <p>You built a playbook that was brilliant. It was built for the problems you had then, the resources you had then, the person you were then.</p>
+            <p>And it worked. It got you here.</p>
+            <p>But playbooks are written for a specific game. And the game has changed. You've changed. The scale has changed. The stakes have changed.</p>
+            <p>The strategies that made you exceptional are now the ceiling on what's possible.</p>
+            <p>This isn't a character flaw. It's physics. Every operating system eventually needs an upgrade.</p>
+            <p>The question isn't what got you here. It's who you need to become to go further.</p>
+          </div>
+        </div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--slate-mid);">Visual Direction</div>
+          <div class="visual-box">
+            <div class="visual-item"><div class="visual-dot"></div>Warm and personal — feels like a letter. More intimate than Week 1's confrontational opener.</div>
+            <div class="visual-item"><div class="visual-dot"></div>Final slide: a full photo of you. Not a quote card — you. Looking forward.</div>
+            <div class="visual-item"><div class="visual-dot"></div>This post should feel like the summary of a relationship you've been building for a month.</div>
+          </div>
+        </div>
+      </div>
+      <div class="lens-strip">
+        <span class="lens-label">Lens</span>
+        <span class="lens-text">Invisible ceiling — identity evolution, operating system upgrade</span>
+      </div>
+    </div>
+
+    <!-- W4 Wed -->
+    <div class="post-card">
+      <div class="post-card-header">
+        <div class="post-day-type">
+          <span class="post-day">Wednesday</span>
+          <span class="type-badge badge-teach">Teach</span>
+        </div>
+        <span class="post-format-tag">Video Reel · 75–90 sec</span>
+      </div>
+      <div class="post-body">
+        <div class="post-hook">"A great coach doesn't help you get what you want. They help you want something bigger."</div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--teach);">Video Script</div>
+          <div class="script-box">
+            <div class="script-direction">[Seated. Most relaxed of all four weeks — you've earned it. Speaking like a trusted friend.]</div><br>
+            <div class="script-line">I want to tell you something about what coaching actually is — because most people have it wrong.</div><br>
+            <div class="script-line">Most people think a coach helps you get what you want. And a good tactics coach does that.</div><br>
+            <div class="script-line">But a transformation coach? A transformation coach helps you want something bigger.</div><br>
+            <div class="script-pause">[pause — let that land]</div><br>
+            <div class="script-line">A tactics coach asks: how do I help you win the game you're already playing?</div>
+            <div class="script-line">A transformation coach asks: are you playing the right game?</div><br>
+            <div class="script-line">Most of the leaders I work with are winning games they don't even want to win anymore. They're optimizing for a version of success that stopped feeling true somewhere along the way.</div><br>
+            <div class="script-direction">[lean forward — this is the invitation]</div><br>
+            <div class="script-line">There's a phrase I use called a Thrilling Vision. Not a five-year plan. Not a SMART goal. A vision that actually creates goosebumps — that's worth the disruption of getting there.</div><br>
+            <div class="script-line">Most people have never named one. Because naming it means you're responsible for it.</div><br>
+            <div class="script-line">So let me ask you: what are you actually capable of?</div>
+            <div class="script-line">Not what's realistic. Not what's safe.</div>
+            <div class="script-line">What are you capable of?</div><br>
+            <div class="script-direction">[hold — quiet — end there]</div>
+          </div>
+        </div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--slate-mid);">Visual Direction</div>
+          <div class="visual-box">
+            <div class="visual-item"><div class="visual-dot"></div>Warmest visual of the four weeks. You're not selling — you're inviting.</div>
+            <div class="visual-item"><div class="visual-dot"></div>Text overlay at end: "What are you actually capable of?" — the one question that defines the whole framework.</div>
+            <div class="visual-item"><div class="visual-dot"></div>Consider a very subtle warm music bed — just underneath, just enough to feel the shift in tone.</div>
+          </div>
+        </div>
+      </div>
+      <div class="lens-strip">
+        <span class="lens-label">Lens</span>
+        <span class="lens-text">Novus — Thrilling Vision. Transformation vs. improvement. The meta performance question.</span>
+      </div>
+    </div>
+
+    <!-- W4 Fri -->
+    <div class="post-card">
+      <div class="post-card-header">
+        <div class="post-day-type">
+          <span class="post-day">Friday</span>
+          <span class="type-badge badge-proof">Proof + Soft CTA</span>
+        </div>
+        <span class="post-format-tag">Single Image · Story Caption</span>
+      </div>
+      <div class="post-body">
+        <div class="post-hook">"I didn't know I could do that."</div>
+        <div class="fri-split">
+          <div class="fri-section">
+            <div class="fri-section-label" style="color: var(--proof);">The Proof</div>
+            <div class="block-text">
+              <p>There's an image I come back to constantly when I think about why I do this work.</p>
+              <p>A mother lifts a car off her child. And in the aftermath, she says: I didn't know I could do that.</p>
+              <p>That moment — the discovery of a capability she didn't know existed — that's what I'm after in every coaching room I sit in.</p>
+              <p>I've watched a leader who had run the same company for sixteen years discover a completely different version of what his leadership could be — and sit in stunned silence for thirty seconds in the middle of a session.</p>
+              <p>I've watched someone name a vision they'd been suppressing for a decade and start crying before they finished the sentence. Not from sadness. From recognition.</p>
+              <p>That's not coaching. That's someone meeting themselves — maybe for the first time. That's what I mean by transformation. Not improvement. Not optimization. A new form.</p>
+            </div>
+          </div>
+          <div class="fri-section" style="background: var(--provoke-bg); border-color: rgba(44,92,74,0.15);">
+            <div class="fri-section-label" style="color: var(--provoke);">The Invitation</div>
+            <div class="block-text">
+              <p>If this month of content has landed somewhere real — if any of it has felt like someone was describing your inner life — I'd love to have a conversation.</p>
+              <p>No pitch. No agenda. Just two people asking the most important question a leader can ask.</p>
+              <p><em>My DMs are open.</em></p>
+            </div>
+          </div>
+        </div>
+        <div class="section-block" style="margin-top: 14px;">
+          <div class="block-label" style="color: var(--slate-mid);">Visual Direction</div>
+          <div class="visual-box">
+            <div class="visual-item"><div class="visual-dot"></div>Your most vulnerable, human photo. Not the speaker. Not the coach. Just you — candid, with family or in a meaningful space.</div>
+            <div class="visual-item"><div class="visual-dot"></div>No text overlay. The caption is the most powerful piece of writing in the calendar. Let the image be quiet.</div>
+            <div class="visual-item"><div class="visual-dot"></div>No link. No button. No "schedule a call" language. The DM is the conversion. Authority closes — eagerness chases.</div>
+          </div>
+        </div>
+        <div class="section-block">
+          <div class="block-label" style="color: var(--slate-mid);">CTA Note</div>
+          <div class="cta-box">The soft CTA that doesn't feel like a CTA. Just an open door. My DMs are open.</div>
+        </div>
+      </div>
+      <div class="lens-strip">
+        <span class="lens-label">Lens</span>
+        <span class="lens-text">BHP — "What am I capable of?" The mother/car image. Calling forward, not out.</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
